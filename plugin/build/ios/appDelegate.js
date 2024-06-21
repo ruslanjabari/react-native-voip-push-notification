@@ -56,7 +56,7 @@ const withIosAppDelegate = (config) => {
 - (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(PKPushType)type withCompletionHandler:(void (^)(void))completion
 {
     NSString *uuid = payload.dictionaryPayload[@"uuid"];
-    NSString *callerName = [NSString stringWithFormat:@"%@ (Connecting...)", payload.dictionaryPayload[@"callerName"]];
+    NSString *callerName = payload.dictionaryPayload[@"callerName"];
     NSString *handle = payload.dictionaryPayload[@"handle"];
 
     [RNVoipPushNotificationManager addCompletionHandler:uuid completionHandler:completion];
